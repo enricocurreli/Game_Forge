@@ -1,0 +1,48 @@
+.myHero{
+    width: 100% !important;
+    height: 85vh !important;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 88%);
+    object-fit: cover;
+    /* position: relative; */
+
+}
+
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.67);
+  }
+
+
+@media screen and (max-width: 700px) {
+
+    .myHero{
+        width: 100% !important;
+        height: 50vh !important;
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 85%);
+        object-fit: cover;
+    }
+
+
+}

@@ -1,0 +1,31 @@
+.imgCard:hover{
+
+    filter:brightness(0.80) !important;
+    transform: scale(1.1);
+   
+}
+
+.imgCard{
+   
+    border-radius:20px ;
+    height:260px ;
+    width: 100%;
+    display: block;
+    transform: scale(1);
+    transition: all  .3s linear;
+
+}
+
+.card_cstm{
+    height: 300px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.CardDLC{
+    border-radius:20px ;
+    height:260px ;
+    width: 100%;
+}
