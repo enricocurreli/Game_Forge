@@ -39,7 +39,7 @@
 
     .myHero{
         width: 100% !important;
-        height: 50vh !important;
+        height: 60vh !important;
         clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 85%);
         object-fit: cover;
     }

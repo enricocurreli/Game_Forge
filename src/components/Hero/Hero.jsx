@@ -24,7 +24,7 @@ const Hero = ({ games }) => {
         centeredSlides={true}
         loop={true}
         autoplay={{
-          delay: 2000,
+          delay: 3500,
           disableOnInteraction: false,
         }}
         pagination={{
