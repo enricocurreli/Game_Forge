@@ -72,13 +72,13 @@ const ReviewsSection = ({ game, profile }) => {
       </Article>
       {/* LIST */}
 
-      <Article classes={"grid md:grid-cols-4 gap-5"}>
+      <Article classes={"grid md:grid-cols-4 gap-5 "}>
         {reviews ? (
           reviews.map((review) => {
             return (
               <div
                 key={review.id}
-                className={game.id == review.game_id ?  "card backdrop-blur-lg bg-accent/40 text-primary-content": " hidden"}
+                className={game.id == review.game_id ?  "card backdrop-blur-lg bg-accent/40 text-primary-content overflow-auto h-[250px]": " hidden"}
               >
               {
                 game.id == review.game_id ?   
