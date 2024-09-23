@@ -127,7 +127,7 @@ const Navbar = () => {
                     type={"text"}
                     placeholder={"Search here"}
                     classes={
-                      "input focus:border-orange-600 focus:bg-slate-700 hover:bg-slate-700  border-white w-[130px]"
+                      "input focus:border-orange-600 focus:bg-slate-700 hover:bg-slate-700 input-sm border-white w-[130px]"
                     }
                     change={handleSearch}
                     value={searchQuery}
@@ -201,20 +201,20 @@ const Navbar = () => {
             {search && scrollY < 30 ? (
               <>
                 <Form
-                  classes={"absolute -bottom-[0px] left-20 p-0"}
+                  classes={"absolute -bottom-[70px] -left-[700px] p-0"}
                 >
                   <Form.Input
                     type={"text"}
                     placeholder={"Search here"}
                     classes={
-                      "input focus:border-orange-600 focus:bg-slate-700 hover:bg-slate-700  border-white w-[200px] z-50"
+                      "input focus:border-orange-600 focus:bg-slate-700 hover:bg-slate-700  border-white input-sm w-[920px] z-50"
                     }
                     change={handleSearch}
                     value={searchQuery}
                   />
                     <Button
                       classes={
-                        "rounded-full bg-orange-600 hover:bg-orange-600 border-none  absolute bottom-[0px] left-[220px] z-50"
+                        "rounded-full bg-orange-600 hover:bg-orange-600 border-none  absolute -bottom-[7px] left-[940px] z-50"
                       }
                      click={handleSearchQuery}
                     >
@@ -229,28 +229,27 @@ const Navbar = () => {
 
             {search && scrollY > 30 ? (
               <>
-                <Form
-                  classes={"absolute -bottom-[0px] left-20 p-0"}
+                 <Form
+                  classes={"absolute -bottom-[70px] -left-[700px] p-0"}
                 >
                   <Form.Input
                     type={"text"}
                     placeholder={"Search here"}
                     classes={
-                      "input focus:border-orange-600 focus:bg-slate-700 hover:bg-slate-700  border-white w-[220px] z-50"
+                      "input focus:border-orange-600 focus:bg-slate-700 hover:bg-slate-700  border-white input-sm w-[920px] z-50"
                     }
                     change={handleSearch}
                     value={searchQuery}
                   />
                     <Button
                       classes={
-                        "rounded-full bg-orange-600 hover:bg-orange-600 border-none  absolute bottom-[0px] left-[240px] z-50 "
+                        "rounded-full bg-orange-600 hover:bg-orange-600 border-none  absolute -bottom-[7px] left-[940px] z-50"
                       }
                      click={handleSearchQuery}
                     >
                       {" "}
                       <IoIosSearch className="hover:scale-150 transition-transform" />
                     </Button>
-                  
                 </Form>
               </>
             ) : (
@@ -259,7 +258,7 @@ const Navbar = () => {
 
             {search ? (
               <Button
-                classes={"rounded-full border-none bg-transparent"}
+                classes={"rounded-full border-none bg-transparent absolute -bottom-[78px] -left-[760px]"}
                 click={showSearch}
               >
                 <IoCloseOutline />

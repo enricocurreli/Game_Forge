@@ -180,7 +180,7 @@ const ProfileView = () => {
             <div className="flex md:w-1/2 flex-col mb-6">
               <div className="divider divider-accent m-0 mb-1"></div>
             </div>
-            <div className="grid md:grid-cols-2 ">
+            <div className="grid md:grid-cols-2 h-[280px] overflow-auto">
               {userReviews &&
                 userReviews.map((review) => {
                   return (

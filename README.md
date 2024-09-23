@@ -2,8 +2,7 @@
 
 titolo: GameForge
 stack: React, Tailwind Css + Daisy UI
-Feacture:
-    - nell'homepage vediamo i giochi dell'ultimo anno 
+DB: Supabase con postgresSQL
 
 API: rawg.io/apidocs
 import.meta.env.VITE_API_KEY
