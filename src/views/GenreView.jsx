@@ -21,7 +21,7 @@ const GenreView = () => {
   
     const API_KEY = import.meta.env.VITE_API_KEY;
   
-    const {page, scrolled, scrollY, prevPage, nextPage, startPage } = useContext(ChangePage)
+    const {page, prevPage, nextPage, startPage } = useContext(ChangePage)
   
     let url = `https://api.rawg.io/api/games?key=${API_KEY}&genres=${slug}&page_size=15&page=${page}&released`;
     

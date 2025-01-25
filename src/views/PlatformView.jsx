@@ -5,7 +5,7 @@ import Article from "../components/Section/Article";
 import Card from "../components/Card/Card";
 import Button from "../components/Button/Button";
 import Paragraph from "../components/Paragraph/Paragraph";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ChangePage } from "../context/ChangePage";
 import useFetch from "../hooks/useFetch";
 
@@ -13,7 +13,7 @@ const PlatformView = () => {
   
   const { id, slug } = useParams();
   const API_KEY = import.meta.env.VITE_API_KEY;
-  const { page, scrolled, scrollY, prevPage, nextPage, startPage } =
+  const { page, prevPage, nextPage, startPage } =
     useContext(ChangePage);
 
 

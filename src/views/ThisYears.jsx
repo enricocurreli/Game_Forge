@@ -8,12 +8,12 @@ import useFetch from "../hooks/useFetch";
 import { useContext, useState} from "react";
 import { ChangePage } from "../context/ChangePage";
 import Paragraph from "../components/Paragraph/Paragraph";
-import routes from "../router/routes";
+
 
 const ThisYears = () => {
 
 
-  const {page, scrolled, scrollY, prevPage, nextPage, startPage } = useContext(ChangePage)
+  const {page, prevPage, nextPage, startPage } = useContext(ChangePage)
   const API_KEY = import.meta.env.VITE_API_KEY;
 
   const genres = useFetch(`https://api.rawg.io/api/genres?key=${API_KEY}`);

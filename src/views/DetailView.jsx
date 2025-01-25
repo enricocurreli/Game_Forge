@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import { ChangePage } from "../context/ChangePage";
 import Section from "../components/Section/Section";
 import Article from "../components/Section/Article";
 import Img from "../components/Img/Img";
@@ -13,6 +12,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+// End Swiper styles
 import Title from "../components/Title/Title";
 import Paragraph from "../components/Paragraph/Paragraph";
 import Card from "../components/Card/Card";
@@ -24,18 +24,15 @@ import { FaHeart } from "react-icons/fa6";
 import supabase from "../database/supabase";
 import ReviewsSection from "../components/ReviewsSection/ReviewsSection";
 
-
 const DetailView = () => {
-
   const game = useLoaderData();
   const { id } = useParams();
   const API_KEY = import.meta.env.VITE_API_KEY;
- 
 
   // SCREENSHOT
   let url = `https://api.rawg.io/api/games/${id}/screenshots?key=${API_KEY}`;
   const { data: screenshots, loading: loadingScreen } = useFetch(url);
- 
+
   // DLC
   let url_DLC = `https://api.rawg.io/api/games/${id}/additions?key=${API_KEY}`;
   const { data: dlc, loading: loadingDLC } = useFetch(url_DLC);
@@ -43,31 +40,29 @@ const DetailView = () => {
   let url_store = `https://api.rawg.io/api/games/${id}/stores?key=${API_KEY}`;
   const { data: stores, loading: loadingStores } = useFetch(url_store);
 
-   // USER CONTEXT
+  // USER CONTEXT
   const { profile } = useContext(UserContext);
 
   const [favorite, setFavorite] = useState(false);
 
-  const getFavorite = async ()=>{
+  // Controlla se il gioco è stato già aggiunto ai preferiti
+  const getFavorite = async () => {
+    let { data: favorites } = await supabase
+      .from("favourites")
+      .select("*")
+      .eq("profile_id", profile.id)
+      .eq("game_id", game.id);
 
-
-    let {data: favorites} = await supabase
-    .from('favourites')
-    .select("*")
-    .eq("profile_id", profile.id)
-    .eq("game_id", game.id);
-    
     if (favorites.length > 0) {
-        setFavorite(true)
-    } 
-    
-  }
+      setFavorite(true);
+    }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     getFavorite();
-  }, [])
-  
+  }, []);
 
+  // Funzione per aggiungere ai preferiti , alterna il cuore pieno al cuore vuoto
   const handleFavorite = async () => {
     await setFavorite((prev) => !prev);
 
@@ -75,19 +70,17 @@ const DetailView = () => {
       await supabase
         .from("favourites")
         .insert([
-          { profile_id: profile.id , game_id: game.id, game_name: game.name }
+          { profile_id: profile.id, game_id: game.id, game_name: game.name },
         ])
         .select();
     } else {
-        
-        await supabase
+      await supabase
         .from("favourites")
         .delete()
         .eq("profile_id", profile.id)
         .eq("game_id", game.id);
     }
   };
-  
 
   return (
     <>
@@ -128,7 +121,11 @@ const DetailView = () => {
         <Article classes={"hidden md:block"}>
           <Img src={game.background_image} classes={"rounded-xl"} />
         </Article>
-        <Article classes={"backdrop-blur-lg bg-white/10 px-10 py-4 rounded-xl md:max-h-[400px] overflow-auto"}>
+        <Article
+          classes={
+            "backdrop-blur-lg bg-white/10 px-10 py-4 rounded-xl md:max-h-[400px] overflow-auto"
+          }
+        >
           <Title tag={"h3"} classes={"text-center text-3xl  mb-4"}>
             {game.name}
           </Title>
@@ -328,8 +325,8 @@ const DetailView = () => {
         </Article>
       </Section>
       {/* END STORES */}
-    { profile &&
-      ( <Section classes={"md:px-24 px-10 my-28"}>
+      {profile && (
+        <Section classes={"md:px-24 px-10 my-28"}>
           <Article classes={"mt-30"}>
             <Title tag={"h1"} classes={"text-3xl mb-8 text-accent"}>
               {" "}
@@ -337,11 +334,9 @@ const DetailView = () => {
             </Title>
           </Article>
           {/* REVIEW SECTION */}
-          <ReviewsSection game={game} profile={profile} /> 
-
-       </Section>
-      )
-    }
+          <ReviewsSection game={game} profile={profile} />
+        </Section>
+      )}
       {/* END REVIEWS */}
       <Footer />
     </>

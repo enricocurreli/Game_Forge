@@ -6,7 +6,6 @@ import Card from "../components/Card/Card";
 import Paragraph from "../components/Paragraph/Paragraph";
 import routes from "../router/routes";
 import useFetch from "../hooks/useFetch";
-import Img from "../components/Img/Img";
 import { useContext } from "react";
 import { ChangePage } from "../context/ChangePage";
 
@@ -33,7 +32,7 @@ const Homepage = () => {
           </Link>
         </Article>
         <Paragraph classes={" text-center mt-10 text-2xl"}>
-        Discover the games of this year's
+        Discover the games of this year&apos;s
         </Paragraph>
         <Article
           classes={"my-16 lg:px-10 grid lg:grid-cols-3 lg:gap-8 md:grid-cols-2"}

@@ -78,5 +78,6 @@ const router = createBrowserRouter([
 
 ])
 
+// TODO MEMO LOADER: funzione speciale utilizzata per caricare dati prima che un determinato componente venga renderizzato. I loader vengono associati alle route e permettono di effettuare richieste asincrone (ad esempio chiamate API o lettura di dati) per fornire al componente i dati necessari prima che venga visualizzato.
 
 export default router;
